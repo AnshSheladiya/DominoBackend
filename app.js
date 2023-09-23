@@ -50,12 +50,7 @@ if (config.NODE_ENV === 'production') {
   app.use(async (ctx) => {
     await send(ctx, 'index.html', { root: staticPath });
   });
-} else {
-  // Handle other routes for development
-  app.use(async (ctx) => {
-    ctx.body = '<h1>Hello From Koa Server</h1>';
-  });
-}
+} 
 
 app.on('error', (err, ctx) => {
   console.log('error: ', err);
