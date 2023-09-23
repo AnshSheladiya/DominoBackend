@@ -49,3 +49,5 @@ require('./app/db/mongoose-connection');
 
 // Start listening
 listen();
+
+module.exports = app;
