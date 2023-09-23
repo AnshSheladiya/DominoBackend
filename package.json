@@ -45,8 +45,7 @@
     "dev": "nodemon app.js",
     "filemap": "filemap -i node_modules libs .git .idea upload",
     "lint": "eslint . --fix",
-    "start": "node app.js",
-    "build": "echo \"Nothing to build for a Node.js backend\""
+    "start": "node app.js"
   },
   "author": "",
   "license": "MIT"
