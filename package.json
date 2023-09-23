@@ -46,7 +46,7 @@
     "filemap": "filemap -i node_modules libs .git .idea upload",
     "lint": "eslint . --fix",
     "start": "node app.js",
-    "build": "npm install"
+    "build": "echo \"Nothing to build for a Node.js backend\""
   },
   "author": "",
   "license": "MIT"

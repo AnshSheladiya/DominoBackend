@@ -1,4 +1,3 @@
 [build]
-command = "npm run build" # Use your appropriate build command
-publish = "public" # Specify the directory containing your static files (if applicable)
-functions = "functions" # Specify the directory containing serverless functions (if applicable)
+command = "npm run start"
+publish = "public"  # Replace with the directory containing your static files (if applicable)
