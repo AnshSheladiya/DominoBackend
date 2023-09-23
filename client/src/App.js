@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('/api/categories');
+        const response = await axios.get('https://dominobackend.onrender.com/api/categories');
         const responseData = response.data.data;
         setData(responseData);
         setLoading(false);
