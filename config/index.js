@@ -4,6 +4,7 @@ const config = {
   appName: 'Domino',
   host: process.env.HOST || 'localhost',
   port: process.env.PORT || 8383,
+  NODE_ENV:process.env.NODE_ENV,
   database: {
     url: process.env.MONGODB_URI || 'mongodb+srv://admin:admin@cluster0.i1ncqui.mongodb.net/Domino?retryWrites=true&w=majority',
   },

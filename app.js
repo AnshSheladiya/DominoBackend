@@ -3,12 +3,18 @@ const cors = require('koa-cors');
 const { koaBody } = require('koa-body');
 const bodyparser = require('koa-bodyparser');
 const compress = require('koa-compress');
+const serve = require('koa-static');
+const path = require('path');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const config = require('./config');
 const router = require('./config/routes');
 const ResponseHelper = require('./app/helpers/ResponseHelper');
 const MSG = require('./app/helpers/constants');
+const send = require('koa-send'); // Import koa-send
+
+global.ResponseHelper = ResponseHelper;
+global.MSG = MSG;
 
 dotenv.config();
 
@@ -25,7 +31,7 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(async (ctx, next) => {
   try {
-    await next(); // Use async/await and the new next() syntax
+    await next();
   } catch (err) {
     ctx.body = { message: err.message };
     ctx.status = err.status || 500;
@@ -33,6 +39,23 @@ app.use(async (ctx, next) => {
 });
 
 app.use(router);
+
+// Serve static files for production
+if (config.NODE_ENV === 'production') {
+  const staticPath = path.join(__dirname,  'client', 'build');
+
+  app.use(serve(staticPath));
+
+  // For all other routes, serve the index.html
+  app.use(async (ctx) => {
+    await send(ctx, 'index.html', { root: staticPath });
+  });
+} else {
+  // Handle other routes for development
+  app.use(async (ctx) => {
+    ctx.body = '<h1>Hello From Koa Server</h1>';
+  });
+}
 
 app.on('error', (err, ctx) => {
   console.log('error: ', err);
@@ -49,5 +72,3 @@ require('./app/db/mongoose-connection');
 
 // Start listening
 listen();
-
-module.exports = app;

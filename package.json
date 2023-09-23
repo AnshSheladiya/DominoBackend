@@ -12,14 +12,16 @@
     "koa-body": "^6.0.1",
     "koa-bodyparser": "^4.4.0",
     "koa-compress": "^2.0.0",
+    "koa-conditional-get": "^3.0.0",
     "koa-convert": "^1.2.0",
     "koa-cors": "^0.0.16",
+    "koa-etag": "^4.0.0",
     "koa-mount": "^3.0.0",
     "koa-multer": "^1.0.2",
     "koa-pug": "^5.1.0",
     "koa-router": "^12.0.0",
     "koa-session": "^6.4.0",
-    "koa-static": "^4.0.2",
+    "koa-static": "^4.0.3",
     "moment": "^2.29.4",
     "mongoose": "^6.10.4",
     "multer": "^1.4.5-lts.1",
@@ -41,12 +43,12 @@
     "grunt-nodemon": "^0.4.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-install": "cd client && npm install",
+    "install-all": "npm install && npm run client-install",
     "dev": "nodemon app.js",
-    "filemap": "filemap -i node_modules libs .git .idea upload",
-    "lint": "eslint . --fix",
-    "start": "node app.js",
-    "build": "npm install"
+    "react": "cd client && npm start",
+    "postbuild": "npm install --prefix client && npm run build --prefix client",
+    "wow": "npm run install-all && npm run postbuild "
   },
   "author": "",
   "license": "MIT"
