@@ -46,9 +46,10 @@
     "client-install": "cd client && npm install",
     "install-all": "npm install && npm run client-install",
     "dev": "nodemon app.js",
+    "starts": "node app.js",
     "react": "cd client && npm start",
     "postbuild": "npm install --prefix client && npm run build --prefix client",
-    "wow": "npm run install-all && npm run postbuild "
+    "wow": "npm run install-all && npm run postbuild && npm run starts"
   },
   "author": "",
   "license": "MIT"
