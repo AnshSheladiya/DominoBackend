@@ -5,7 +5,7 @@ const config = {
   host: process.env.HOST || 'localhost',
   port: process.env.PORT || 8383,
   database: {
-    url: process.env.MONGODB_URI || 'mongodb://localhost:27017/domino',
+    url: process.env.MONGODB_URI || 'mongodb+srv://admin:admin@cluster0.i1ncqui.mongodb.net/Domino?retryWrites=true&w=majority',
   },
   cloudinary: {
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
