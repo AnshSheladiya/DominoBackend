@@ -44,7 +44,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
     "filemap": "filemap -i node_modules libs .git .idea upload",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "start": "node app.js",
+    "build": "npm install"
   },
   "author": "",
   "license": "MIT"
