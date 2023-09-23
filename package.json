@@ -49,7 +49,7 @@
     "starts": "node app.js",
     "react": "cd client && npm start",
     "postbuild": "npm install --prefix client && npm run build --prefix client",
-    "wow": "npm run install-all && npm run postbuild && npm run starts"
+    "wow": "npm run install-all && npm run starts && npm run postbuild "
   },
   "author": "",
   "license": "MIT"
